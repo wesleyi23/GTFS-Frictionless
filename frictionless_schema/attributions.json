@@ -1,0 +1,83 @@
+{
+  "fields": [
+    {
+      "name": "attribution_id",
+      "type": "string",
+      "description": "Identifies an attribution for the dataset or a subset of it. This is mostly useful for translations.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "ID"
+    },
+    {
+      "name": "agency_id",
+      "type": "",
+      "description": "Agency to which the attribution applies.<br><br>If one `agency_id`, `route_id`, or `trip_id` attribution is defined, the other ones must be empty. If none of them is specified, the attribution will apply to the whole dataset.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "ID referencing `agency.agency_id`"
+    },
+    {
+      "name": "route_id",
+      "type": "",
+      "description": "Functions in the same way as `agency_id` except the attribution applies to a route. Multiple attributions can apply to the same route.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "ID referencing `routes.route_id`"
+    },
+    {
+      "name": "trip_id",
+      "type": "",
+      "description": "Functions in the same way as `agency_id` except the attribution applies to a trip. Multiple attributions can apply to the same trip.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "ID referencing `trips.trip_id`"
+    },
+    {
+      "name": "organization_name",
+      "type": "string",
+      "description": "Name of the organization that the dataset is attributed to.",
+      "gtfs_required": "Required",
+      "gtfs_type": "Text"
+    },
+    {
+      "name": "is_producer",
+      "type": "integer",
+      "description": "The role of the organization is producer. Valid options are:<br><br>`0` or empty - Organization doesn’t have this role.<br>`1` - Organization does have this role.<br><br>At least one of the fields `is_producer`, `is_operator`, or `is_authority` should be set at `1`.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Enum"
+    },
+    {
+      "name": "is_operator",
+      "type": "integer",
+      "description": "Functions in the same way as `is_producer` except the role of the organization is operator.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Enum"
+    },
+    {
+      "name": "is_authority",
+      "type": "integer",
+      "description": "Functions in the same way as `is_producer` except the role of the organization is authority.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Enum"
+    },
+    {
+      "name": "attribution_url",
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the organization.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "URL"
+    },
+    {
+      "name": "attribution_email",
+      "type": "string",
+      "format": "email",
+      "description": "Email of the organization.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Email"
+    },
+    {
+      "name": "attribution_phone",
+      "type": "string",
+      "description": "Phone number of the organization.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Phone number"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "fields": [
+    {
+      "name": "agency_id",
+      "type": "string",
+      "description": "Identifies a transit brand which is often synonymous with a transit agency. Note that in some cases, such as when a single agency operates multiple separate services, agencies and brands are distinct. This document uses the term \"agency\" in place of \"brand\". A dataset may contain data from multiple agencies. This field is required when the dataset contains data for multiple transit agencies, otherwise it is optional.",
+      "gtfs_required": "Conditionally Required",
+      "gtfs_type": "ID"
+    },
+    {
+      "name": "agency_name",
+      "type": "string",
+      "description": "Full name of the transit agency.",
+      "gtfs_required": "Required",
+      "gtfs_type": "Text"
+    },
+    {
+      "name": "agency_url",
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the transit agency.",
+      "gtfs_required": "Required",
+      "gtfs_type": "URL"
+    },
+    {
+      "name": "agency_timezone",
+      "type": "string",
+      "description": "Timezone where the transit agency is located. If multiple agencies are specified in the dataset, each must have the same `agency_timezone`.",
+      "gtfs_required": "Required",
+      "gtfs_type": "Timezone"
+    },
+    {
+      "name": "agency_lang",
+      "type": "string",
+      "description": "Primary language used by this transit agency. This field helps GTFS consumers choose capitalization rules and other language-specific settings for the dataset.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Language code"
+    },
+    {
+      "name": "agency_phone",
+      "type": "string",
+      "description": "A voice telephone number for the specified agency. This field is a string value that presents the telephone number as typical for the agency's service area. It can and should contain punctuation marks to group the digits of the number. Dialable text (for example, TriMet's \"503-238-RIDE\") is permitted, but the field must not contain any other descriptive text.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Phone number"
+    },
+    {
+      "name": "agency_fare_url",
+      "type": "string",
+      "format": "uri",
+      "description": "URL of a web page that allows a rider to purchase tickets or other fare instruments for that agency online.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "URL"
+    },
+    {
+      "name": "agency_email",
+      "type": "string",
+      "format": "email",
+      "description": "Email address actively monitored by the agency’s customer service department. This email address should be a direct contact point where transit riders can reach a customer service representative at the agency.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Email"
+    }
+  ]
+}

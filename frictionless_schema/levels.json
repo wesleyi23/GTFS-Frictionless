@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "name": "level_id",
+      "type": "string",
+      "description": "Id of the level that can be referenced from `stops.txt`.",
+      "gtfs_required": "Required",
+      "gtfs_type": "ID"
+    },
+    {
+      "name": "level_index",
+      "type": "number",
+      "description": "Numeric index of the level that indicates relative position of this level in relation to other levels (levels with higher indices are assumed to be located above levels with lower indices).<br><br>Ground level should have index 0, with levels above ground indicated by positive indices and levels below ground by negative indices.",
+      "gtfs_required": "Required",
+      "gtfs_type": "Float"
+    },
+    {
+      "name": "level_name",
+      "type": "string",
+      "description": "Optional name of the level (that matches level lettering/numbering used inside the building or the station). Is useful for elevator routing (e.g. “take the elevator to level “Mezzanine” or “Platforms” or “-1”).",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Text"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "fields": [
+    {
+      "name": "pathway_id",
+      "type": "string",
+      "description": "The `pathway_id` field contains an ID that uniquely identifies the pathway. The `pathway_id` is used by systems as an internal identifier of this record (e.g., primary key in database), and therefore the `pathway_id` must be dataset unique. <br> Different pathways can go from the same `from_stop_id` to the same `to_stop_id`. For example, this happens when two escalators are side by side in opposite direction, or when a stair is nearby and elevator and both go from the same place to the same place.",
+      "gtfs_required": "Required",
+      "gtfs_type": "ID"
+    },
+    {
+      "name": "from_stop_id",
+      "type": "",
+      "description": "Location at which the pathway begins. It contains a `stop_id` that identifies a platform, entrance/exit, generic node or boarding area from the `stops.txt` file.",
+      "gtfs_required": "Required",
+      "gtfs_type": "ID referencing `stops.stop_id`"
+    },
+    {
+      "name": "to_stop_id",
+      "type": "",
+      "description": "Location at which the pathway ends. It contains a `stop_id` that identifies a platform, entrance/exit, generic node or boarding area from the `stops.txt` file.",
+      "gtfs_required": "Required",
+      "gtfs_type": "ID referencing `stops.stop_id`"
+    },
+    {
+      "name": "pathway_mode",
+      "type": "integer",
+      "description": "Type of pathway between the specified (`from_stop_id`, `to_stop_id`) pair. Valid values for this field are: <br> • 1: walkway <br> • 2: stairs <br> • 3: moving sidewalk/travelator <br> • 4: escalator <br> • 5: elevator <br> • 6: fare gate (or payment gate): A pathway that crosses into an area of the station where a proof of payment is required (usually via a physical payment gate).<br>Fare gates may either separate paid areas of the station from unpaid ones, or separate different payment areas within the same station from each other. This information can be used to avoid routing passengers through stations using shortcuts that would require passengers to make unnecessary payments, like directing a passenger to walk through a subway platform to reach a busway. <br> • 7: exit gate: Indicates a pathway exiting an area where proof-of-payment is required into an area where proof-of-payment is no longer required.",
+      "gtfs_required": "Required",
+      "gtfs_type": "Enum"
+    },
+    {
+      "name": "is_bidirectional",
+      "type": "integer",
+      "description": "Indicates in which direction the pathway can be used:<br>• 0: Unidirectional pathway, it can only be used from `from_stop_id` to `to_stop_id`.<br>• 1: Bidirectional pathway, it can be used in the two directions.<br><br>Fare gates (`pathway_mode=6`) and exit gates (`pathway_mode=7`) cannot be bidirectional.",
+      "gtfs_required": "Required",
+      "gtfs_type": "Enum"
+    },
+    {
+      "name": "length",
+      "type": "",
+      "description": "Horizontal length in meters of the pathway from the origin location (defined in `from_stop_id`) to the destination location (defined in `to_stop_id`).<br><br>This field is recommended for walkways (`pathway_mode=1`), fare gates (`pathway_mode=6`) and exit gates (`pathway_mode=7`).",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Non-negative Float"
+    },
+    {
+      "name": "traversal_time",
+      "type": "interger",
+      "description": "Average time in seconds needed to walk through the pathway from the origin location (defined in `from_stop_id`) to the destination location (defined in `to_stop_id`).<br><br>This field is recommended for moving sidewalks (`pathway_mode=3`), escalators (`pathway_mode=4`) and elevator (`pathway_mode=5`).",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Positive Integer"
+    },
+    {
+      "name": "stair_count",
+      "type": "interger",
+      "description": "Number of stairs of the pathway.<br><br>Best Practices: one could use the approximation of 1 floor = 15 stairs to generate approximative values.<br><br>A positive `stair_count` implies that the rider walk up from `from_stop_id` to `to_stop_id`. And a negative `stair_count` implies that the rider walk down from `from_stop_id` to `to_stop_id`.<br><br>This field is recommended for stairs (`pathway_mode=2`).",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Non-null Integer"
+    },
+    {
+      "name": "max_slope",
+      "type": "number",
+      "description": "Maximum slope ratio of the pathway. Valid values for this field are:<br>• 0 or (empty): no slope.<br>• A float: slope ratio of the pathway, positive for upwards, negative for downwards.<br><br>This field should be used only with walkways (`pathway_mode=1`) and moving sidewalks (`pathway_mode=3`).<br><br>Example: In the US, 0.083 (also written 8.3%) is the maximum slope ratio for hand-propelled wheelchair, which mean an increase of 0.083m (so 8.3cm) for each 1m.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Float"
+    },
+    {
+      "name": "min_width",
+      "type": "number",
+      "description": "Minimum width of the pathway in meters.<br><br>This field is highly recommended if the minimum width is less than 1 meter.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Positive Float"
+    },
+    {
+      "name": "signposted_as",
+      "type": "string",
+      "description": "String of text from physical signage visible to transit riders. The string can be used to provide text directions to users, such as 'follow signs to '. The language text should appear in this field exactly how it is printed on the signs.<br><br>When the physical signage is multilingual, this field may be populated and translated following the example of `stops.stop_name` in the field definition of `feed_info.feed_lang`.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Text"
+    },
+    {
+      "name": "reversed_signposted_as",
+      "type": "string",
+      "description": "Same than the `signposted_as` field, but when the pathways is used backward, i.e. from the `to_stop_id` to the `from_stop_id`.",
+      "gtfs_required": "Optional",
+      "gtfs_type": "Text"
+    }
+  ]
+}
