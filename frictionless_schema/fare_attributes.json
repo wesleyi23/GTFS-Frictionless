@@ -5,35 +5,60 @@
       "type": "string",
       "description": "Identifies a fare class.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID"
+      "gtfs_type": "ID",
+      "constraints": {
+        "required": "true",
+        "unique": "true"
+      }
     },
     {
       "name": "price",
       "type": "number",
       "description": "Fare price, in the unit specified by `currency_type`.",
       "gtfs_required": "Required",
-      "gtfs_type": "Non-negative float"
+      "gtfs_type": "Non-negative float",
+      "constraints": {
+        "required": "true",
+        "minimum": "0"
+      }
     },
     {
       "name": "currency_type",
       "type": "string",
       "description": "Currency used to pay the fare.",
       "gtfs_required": "Required",
-      "gtfs_type": "Currency code"
+      "gtfs_type": "Currency code",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "payment_method",
       "type": "integer",
       "description": "Indicates when the fare must be paid. Valid options are:<br><br>`0` - Fare is paid on board.<br>`1` - Fare must be paid before boarding.",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          1,
+          2
+        ]
+      }
     },
     {
       "name": "transfers",
       "type": "integer",
       "description": "Indicates the number of transfers permitted on this fare. The fact that this field can be left empty is an exception to the requirement that a Required field must not be empty. Valid options are:<br><br>`0` - No transfers permitted on this fare.<br>`1` - Riders may transfer once.<br>`2` - Riders may transfer twice.<br>empty - Unlimited transfers are permitted.",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          1,
+          2
+        ]
+      }
     },
     {
       "name": "agency_id",
@@ -47,7 +72,10 @@
       "type": "interger",
       "description": "Length of time in seconds before a transfer expires. When `transfers`=`0` this field can be used to indicate how long a ticket is valid for or it can be left empty.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Non-negative integer"
+      "gtfs_type": "Non-negative integer",
+      "constraints": {
+        "minimum": "0"
+      }
     }
   ]
 }

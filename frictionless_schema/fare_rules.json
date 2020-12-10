@@ -5,7 +5,10 @@
       "type": "",
       "description": "Identifies a fare class.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID referencing `fare_attributes.fare_id`"
+      "gtfs_type": "ID referencing `fare_attributes.fare_id`",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "route_id",

@@ -5,7 +5,10 @@
       "type": "string",
       "description": "Identifies an attribution for the dataset or a subset of it. This is mostly useful for translations.",
       "gtfs_required": "Optional",
-      "gtfs_type": "ID"
+      "gtfs_type": "ID",
+      "constraints": {
+        "unique": "true"
+      }
     },
     {
       "name": "agency_id",
@@ -33,14 +36,23 @@
       "type": "string",
       "description": "Name of the organization that the dataset is attributed to.",
       "gtfs_required": "Required",
-      "gtfs_type": "Text"
+      "gtfs_type": "Text",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "is_producer",
       "type": "integer",
       "description": "The role of the organization is producer. Valid options are:<br><br>`0` or empty - Organization doesn’t have this role.<br>`1` - Organization does have this role.<br><br>At least one of the fields `is_producer`, `is_operator`, or `is_authority` should be set at `1`.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "is_operator",
@@ -78,6 +90,40 @@
       "description": "Phone number of the organization.",
       "gtfs_required": "Optional",
       "gtfs_type": "Phone number"
+    }
+  ],
+  "primaryKey": "attribution_id",
+  "foreignKeys": [
+    {
+      "fields": [
+        "agency_id"
+      ],
+      "reference": {
+        "resource": "agency.txt",
+        "fields": [
+          "agency_id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "route_id"
+      ],
+      "reference": {
+        "resource": "routes.txt",
+        "fields": [
+          "route_id"
+        ]
+      }
+    },
+    {
+      "fields": [
+        "trip_id"
+      ],
+      "reference": {
+        "resource": "trips.txt",
+        "fields": "trip_id"
+      }
     }
   ]
 }

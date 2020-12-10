@@ -101,7 +101,6 @@ def create_spec(gtfs_file_name, enum_constraints_in_schema=True):
 
     # add primary keys
     if gtfs_file_name in list(primary_keys['Table']):
-        print(str(primary_keys[primary_keys['Table'] == gtfs_file_name].iloc[0]['Primary Key Value']))
         if '[' in primary_keys[primary_keys['Table'] == gtfs_file_name].iloc[0]['Primary Key Value']:
             schema.primary_key = ast.literal_eval(primary_keys[primary_keys['Table'] == gtfs_file_name].iloc[0]['Primary Key Value'])
         else:

@@ -5,14 +5,20 @@
       "type": "string",
       "description": "Identifies a transit brand which is often synonymous with a transit agency. Note that in some cases, such as when a single agency operates multiple separate services, agencies and brands are distinct. This document uses the term \"agency\" in place of \"brand\". A dataset may contain data from multiple agencies. This field is required when the dataset contains data for multiple transit agencies, otherwise it is optional.",
       "gtfs_required": "Conditionally Required",
-      "gtfs_type": "ID"
+      "gtfs_type": "ID",
+      "constraints": {
+        "unique": "true"
+      }
     },
     {
       "name": "agency_name",
       "type": "string",
       "description": "Full name of the transit agency.",
       "gtfs_required": "Required",
-      "gtfs_type": "Text"
+      "gtfs_type": "Text",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "agency_url",
@@ -20,14 +26,20 @@
       "format": "uri",
       "description": "URL of the transit agency.",
       "gtfs_required": "Required",
-      "gtfs_type": "URL"
+      "gtfs_type": "URL",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "agency_timezone",
       "type": "string",
       "description": "Timezone where the transit agency is located. If multiple agencies are specified in the dataset, each must have the same `agency_timezone`.",
       "gtfs_required": "Required",
-      "gtfs_type": "Timezone"
+      "gtfs_type": "Timezone",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "agency_lang",
@@ -59,5 +71,6 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Email"
     }
-  ]
+  ],
+  "primaryKey": "agency_id"
 }

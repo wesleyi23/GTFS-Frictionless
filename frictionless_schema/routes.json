@@ -5,7 +5,11 @@
       "type": "string",
       "description": "Identifies a route.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID"
+      "gtfs_type": "ID",
+      "constraints": {
+        "required": "true",
+        "unique": "true"
+      }
     },
     {
       "name": "agency_id",
@@ -40,7 +44,16 @@
       "type": "integer",
       "description": "Indicates the type of transportation used on a route. Valid options are: <br><br>`0` - Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.<br>`1` - Subway, Metro. Any underground rail system within a metropolitan area.<br>`2` - Rail. Used for intercity or long-distance travel.<br>`3` - Bus. Used for short- and long-distance bus routes.<br>`4` - Ferry. Used for short- and long-distance boat service.<br>`5` - Cable tram. Used for street-level rail cars where the cable runs beneath the vehicle, e.g., cable car in San Francisco.<br>`6` - Aerial lift, suspended cable car (e.g., gondola lift, aerial tramway). Cable transport where cabins, cars, gondolas or open chairs are suspended by means of one or more cables.<br>`7` - Funicular. Any rail system designed for steep inclines.<br>`11` - Trolleybus. Electric buses that draw power from overhead wires using poles.<br>`12` - Monorail. Railway in which the track consists of a single rail or a beam.",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
     },
     {
       "name": "route_url",
@@ -69,21 +82,40 @@
       "type": "interger",
       "description": "Orders the routes in a way which is ideal for presentation to customers. Routes with smaller `route_sort_order` values should be displayed first.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Non-negative integer"
+      "gtfs_type": "Non-negative integer",
+      "constraints": {
+        "minimum": "0"
+      }
     },
     {
       "name": "continuous_pickup",
       "type": "integer",
       "description": "Indicates that the rider can board the transit vehicle at any point along the vehicle’s travel path as described by `shapes.txt`, on every trip of the route. Valid options are: <br><br>`0` - Continuous stopping pickup. <br>`1` or empty - No continuous stopping pickup. <br>`2` - Must phone agency to arrange continuous stopping pickup. <br>`3` - Must coordinate with driver to arrange continuous stopping pickup.  <br><br>The continuous pickup behavior defined in `routes.txt` can be overridden in `stop_times.txt`.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
     },
     {
       "name": "continuous_drop_off",
       "type": "integer",
       "description": "Indicates that the rider can alight from the transit vehicle at any point along the vehicle’s travel path as described by `shapes.txt`, on every trip of the route. Valid options are: <br><br>`0` - Continuous stopping drop off. <br>`1` or empty - No continuous stopping drop off. <br>`2` - Must phone agency to arrange continuous stopping drop off. <br>`3` - Must coordinate with driver to arrange continuous stopping drop off. <br><br>The continuous drop-off behavior defined in `routes.txt` can be overridden in `stop_times.txt`.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
     }
   ]
 }

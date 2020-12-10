@@ -5,7 +5,10 @@
       "type": "",
       "description": "Identifies a trip.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID referencing `trips.trip_id`"
+      "gtfs_type": "ID referencing `trips.trip_id`",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "arrival_time",
@@ -26,14 +29,21 @@
       "type": "",
       "description": "Identifies the serviced stop. All stops serviced during a trip must have a record in [stop_times.txt](#stop_timestxt). Referenced locations must be stops, not stations or station entrances. A stop may be serviced multiple times in the same trip, and multiple trips and routes may service the same stop.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID referencing `stops.stop_id`"
+      "gtfs_type": "ID referencing `stops.stop_id`",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "stop_sequence",
       "type": "interger",
       "description": "Order of stops for a particular trip. The values must increase along the trip but do not need to be consecutive.<hr>*Example: The first location on the trip could have a `stop_sequence`=`1`, the second location on the trip could have a `stop_sequence`=`23`, the third location could have a `stop_sequence`=`40`, and so on.*",
       "gtfs_required": "Required",
-      "gtfs_type": "Non-negative integer"
+      "gtfs_type": "Non-negative integer",
+      "constraints": {
+        "required": "true",
+        "minimum": "0"
+      }
     },
     {
       "name": "stop_headsign",
@@ -47,42 +57,75 @@
       "type": "integer",
       "description": "Indicates pickup method. Valid options are:<br><br>`0` or empty - Regularly scheduled pickup. <br>`1` - No pickup available.<br>`2` - Must phone agency to arrange pickup.<br>`3` - Must coordinate with driver to arrange pickup.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "drop_off_type",
       "type": "integer",
       "description": "Indicates drop off method. Valid options are:<br><br>`0` or empty - Regularly scheduled drop off.<br>`1` - No drop off available.<br>`2` - Must phone agency to arrange drop off.<br>`3` - Must coordinate with driver to arrange drop off.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "continuous_pickup",
       "type": "integer",
       "description": "Indicates that the rider can board the transit vehicle at any point along the vehicle’s travel path as described by `shapes.txt`, from this `stop_time` to the next `stop_time` in the trip’s `stop_sequence`. Valid options are: <br><br>`0` - Continuous stopping pickup. <br>`1` or empty - No continuous stopping pickup. <br>`2` - Must phone agency to arrange continuous stopping pickup. <br>`3` - Must coordinate with driver to arrange continuous stopping pickup.  <br><br>If this field is populated, it overrides any continuous pickup behavior defined in `routes.txt`. If this field is empty, the `stop_time` inherits any continuous pickup behavior defined in `routes.txt`.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "continuous_drop_off",
       "type": "integer",
       "description": "Indicates that the rider can alight from the transit vehicle at any point along the vehicle’s travel path as described by `shapes.txt`, from this `stop_time` to the next `stop_time` in the trip’s `stop_sequence`. Valid options are: <br><br>`0` - Continuous stopping drop off. <br>`1` or empty - No continuous stopping drop off. <br>`2` - Must phone agency to arrange continuous stopping drop off. <br>`3` - Must coordinate with driver to arrange continuous stopping drop off. <br><br>If this field is populated, it overrides any continuous drop-off behavior defined in `routes.txt`. If this field is empty, the `stop_time` inherits any continuous drop-off behavior defined in `routes.txt`.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "shape_dist_traveled",
       "type": "number",
       "description": "Actual distance traveled along the associated shape, from the first stop to the stop specified in this record. This field specifies how much of the shape to draw between any two stops during a trip. Must be in the same units used in [shapes.txt](#shapestxt). Values used for `shape_dist_traveled` must increase along with `stop_sequence`; they cannot be used to show reverse travel along a route.<hr>*Example: If a bus travels a distance of 5.25 kilometers from the start of the shape to the stop,`shape_dist_traveled`=`5.25`.*",
       "gtfs_required": "Optional",
-      "gtfs_type": "Non-negative float"
+      "gtfs_type": "Non-negative float",
+      "constraints": {
+        "minimum": "0"
+      }
     },
     {
       "name": "timepoint",
       "type": "integer",
       "description": "Indicates if arrival and departure times for a stop are strictly adhered to by the vehicle or if they are instead approximate and/or interpolated times. This field allows a GTFS producer to provide interpolated stop-times, while indicating that the times are approximate. Valid options are:<br><br>`0` - Times are considered approximate.<br>`1` or empty - Times are considered exact.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1
+        ]
+      }
     }
   ]
 }

@@ -5,35 +5,53 @@
       "type": "",
       "description": "Identifies a trip to which the specified headway of service applies.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID referencing `trips.trip_id`"
+      "gtfs_type": "ID referencing `trips.trip_id`",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "start_time",
       "type": "time",
       "description": "Time at which the first vehicle departs from the first stop of the trip with the specified headway.",
       "gtfs_required": "Required",
-      "gtfs_type": "Time"
+      "gtfs_type": "Time",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "end_time",
       "type": "time",
       "description": "Time at which service changes to a different headway (or ceases) at the first stop in the trip.",
       "gtfs_required": "Required",
-      "gtfs_type": "Time"
+      "gtfs_type": "Time",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "headway_secs",
       "type": "",
       "description": "Time, in seconds, between departures from the same stop (headway) for the trip, during the time interval specified by `start_time` and `end_time`. Multiple headways for the same trip are allowed, but may not overlap. New headways may start at the exact time the previous headway ends.",
       "gtfs_required": "Required",
-      "gtfs_type": "Positive integer"
+      "gtfs_type": "Positive integer",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "exact_times",
       "type": "integer",
       "description": "Indicates the type of service for a trip. See the file description for more information. Valid options are:<br><br>`0` or empty - Frequency-based trips.<br>`1` - Schedule-based trips with the exact same headway throughout the day. In this case the `end_time` value must be greater than the last desired trip `start_time` but less than the last desired trip start_time + `headway_secs`.",
       "gtfs_required": "Optional",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "enum": [
+          0,
+          1
+        ]
+      }
     }
   ]
 }

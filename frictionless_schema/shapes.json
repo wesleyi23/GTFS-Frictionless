@@ -5,35 +5,57 @@
       "type": "string",
       "description": "Identifies a shape.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID"
+      "gtfs_type": "ID",
+      "constraints": {
+        "required": "true",
+        "unique": "true"
+      }
     },
     {
       "name": "shape_pt_lat",
       "type": "number",
       "description": "Latitude of a shape point. Each record in [shapes.txt](#shapestxt) represents a shape point used to define the shape.",
       "gtfs_required": "Required",
-      "gtfs_type": "Latitude"
+      "gtfs_type": "Latitude",
+      "constraints": {
+        "required": "true",
+        "minimum": "-180",
+        "maximum": "180"
+      }
     },
     {
       "name": "shape_pt_lon",
       "type": "number",
       "description": "Longitude of a shape point.",
       "gtfs_required": "Required",
-      "gtfs_type": "Longitude"
+      "gtfs_type": "Longitude",
+      "constraints": {
+        "required": "true",
+        "minimum": "-180",
+        "maximum": "180"
+      }
     },
     {
       "name": "shape_pt_sequence",
       "type": "interger",
       "description": "Sequence in which the shape points connect to form the shape. Values must increase along the trip but do not need to be consecutive.<hr>*Example: If the shape \"A_shp\" has three points in its definition, the [shapes.txt](#shapestxt) file might contain these records to define the shape:* <br> `shape_id,shape_pt_lat,shape_pt_lon,shape_pt_sequence` <br> `A_shp,37.61956,-122.48161,0` <br> `A_shp,37.64430,-122.41070,6` <br> `A_shp,37.65863,-122.30839,11`",
       "gtfs_required": "Required",
-      "gtfs_type": "Non-negative integer"
+      "gtfs_type": "Non-negative integer",
+      "constraints": {
+        "required": "true",
+        "minimum": "0"
+      }
     },
     {
       "name": "shape_dist_traveled",
       "type": "number",
       "description": "Actual distance traveled along the shape from the first shape point to the point specified in this record. Used by trip planners to show the correct portion of the shape on a map. Values must increase along with `shape_pt_sequence`; they cannot be used to show reverse travel along a route. Distance units must be consistent with those used in [stop_times.txt](#stop_timestxt).<hr>*Example: If a bus travels along the three points defined above for A_shp, the additional `shape_dist_traveled` values (shown here in kilometers) would look like this:* <br> `shape_id,shape_pt_lat,shape_pt_lon,shape_pt_sequence,shape_dist_traveled` <br> `A_shp,37.61956,-122.48161,0,0`<br>`A_shp,37.64430,-122.41070,6,6.8310` <br> `A_shp,37.65863,-122.30839,11,15.8765`",
       "gtfs_required": "Optional",
-      "gtfs_type": "Non-negative float"
+      "gtfs_type": "Non-negative float",
+      "constraints": {
+        "minimum": "0"
+      }
     }
-  ]
+  ],
+  "primaryKey": "shape_id"
 }

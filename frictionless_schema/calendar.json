@@ -5,56 +5,109 @@
       "type": "string",
       "description": "Uniquely identifies a set of dates when service is available for one or more routes. Each `service_id` value can appear at most once in a [calendar.txt](#calendartxt) file.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID"
+      "gtfs_type": "ID",
+      "constraints": {
+        "required": "true",
+        "unique": "true"
+      }
     },
     {
       "name": "monday",
       "type": "integer",
       "description": "Indicates whether the service operates on all Mondays in the date range specified by the `start_date` and `end_date` fields. Note that exceptions for particular dates may be listed in [calendar_dates.txt](#calendar_datestxt). Valid options are:<br><br>`1` - Service is available for all Mondays in the date range.<br>`0` - Service is not available for Mondays in the date range.",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "tuesday",
       "type": "integer",
       "description": "Functions in the same way as `monday` except applies to Tuesdays",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "wednesday",
       "type": "integer",
       "description": "Functions in the same way as `monday` except applies to Wednesdays",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "thursday",
       "type": "integer",
       "description": "Functions in the same way as `monday` except applies to Thursdays",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "friday",
       "type": "integer",
       "description": "Functions in the same way as `monday` except applies to Fridays",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "saturday",
       "type": "integer",
       "description": "Functions in the same way as `monday` except applies to Saturdays.",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "sunday",
       "type": "integer",
       "description": "Functions in the same way as `monday` except applies to Sundays.",
       "gtfs_required": "Required",
-      "gtfs_type": "Enum"
+      "gtfs_type": "Enum",
+      "constraints": {
+        "required": "true",
+        "enum": [
+          0,
+          1
+        ]
+      }
     },
     {
       "name": "start_date",
@@ -62,7 +115,10 @@
       "format": "%Y%m%d",
       "description": "Start service day for the service interval.",
       "gtfs_required": "Required",
-      "gtfs_type": "Date"
+      "gtfs_type": "Date",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "end_date",
@@ -70,7 +126,11 @@
       "format": "%Y%m%d",
       "description": "End service day for the service interval. This service day is included in the interval.",
       "gtfs_required": "Required",
-      "gtfs_type": "Date"
+      "gtfs_type": "Date",
+      "constraints": {
+        "required": "true"
+      }
     }
-  ]
+  ],
+  "primaryKey": "service_id"
 }

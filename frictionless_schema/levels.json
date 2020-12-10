@@ -5,14 +5,21 @@
       "type": "string",
       "description": "Id of the level that can be referenced from `stops.txt`.",
       "gtfs_required": "Required",
-      "gtfs_type": "ID"
+      "gtfs_type": "ID",
+      "constraints": {
+        "required": "true",
+        "unique": "true"
+      }
     },
     {
       "name": "level_index",
       "type": "number",
       "description": "Numeric index of the level that indicates relative position of this level in relation to other levels (levels with higher indices are assumed to be located above levels with lower indices).<br><br>Ground level should have index 0, with levels above ground indicated by positive indices and levels below ground by negative indices.",
       "gtfs_required": "Required",
-      "gtfs_type": "Float"
+      "gtfs_type": "Float",
+      "constraints": {
+        "required": "true"
+      }
     },
     {
       "name": "level_name",
@@ -21,5 +28,6 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Text"
     }
-  ]
+  ],
+  "primaryKey": "level_id"
 }
