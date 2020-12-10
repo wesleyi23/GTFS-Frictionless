@@ -1,0 +1,18 @@
+﻿Table,Primary Key Value
+agency.txt,agency_id
+stops.txt,stop_id
+routes.txt,
+trips.txt,trip_id
+stop_times.txt,
+calendar.txt,service_id
+calendar_dates.txt,"['service_id','date']"
+fare_attributes.txt,
+fare_rules.txt,
+shapes.txt,shape_id
+frequencies.txt,
+transfers.txt,
+pathways.txt,pathway_id
+levels.txt,level_id
+translations.txt,
+feed_info.txt,
+attributions.txt,attribution_id

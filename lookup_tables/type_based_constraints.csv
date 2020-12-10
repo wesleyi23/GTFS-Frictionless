@@ -1,0 +1,34 @@
+﻿Type,Constraint,Value
+ID,unique,true
+Text,,
+URL,,
+Timezone,,
+Language code,,
+Phone number,,
+Email,,
+Latitude,minimum,-180
+Latitude,maximum,180
+Longitude,minimum,-180
+Longitude,maximum,180
+Enum,,
+ID referencing stops.stop_id,,
+ID referencing levels.level_id,,
+ID referencing agency.agency_id,,
+Color,,
+Non-negative integer,minimum,0
+ID referencing routes.route_id,,
+ID referencing calendar.service_id or calendar_dates.service_id,,
+ID referencing shapes.shape_id,,
+ID referencing trips.trip_id,,
+Time,,
+Non-negative float,minimum,0
+Date,,
+ID referencing calendar.service_id or ID,,
+Currency code,,
+ID referencing fare_attributes.fare_id,,
+ID referencing stops.zone_id,,
+Positive Integer,minimum,0
+Non-null Integer,,
+Float,,
+Positive Float,minimum,0
+Text or URL or Email or Phone number,,

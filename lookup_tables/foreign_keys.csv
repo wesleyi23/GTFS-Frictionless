@@ -1,0 +1,23 @@
+﻿Table,Field,Reference,Reference Field
+stops.txt,parent_station,stops.txt,stop_id
+stops.txt,level_id,levels.txt,level_id
+routes.txt,agency_id,agency.txt,agency_id
+trips.txt,route_id,routes.txt,route_id
+trips.txt,service_id,calendar.txt,service_id
+trips.txt,service_id,calendar_dates.txt,service_id
+trips.txt,shape_id,shapes.text,shape_id
+stop_times.txt,stop_id,stops.txt,stop_id
+calendar_dates.txt,service_id,calendar.txt,service_id
+fare_attributes.txt,agency_id,agency.txt,agency_id
+fare_rules.txt,fare_id,fare_attributes.txt,fare_id
+fare_rules.txt,origin_id,stops.txt,zone_id
+fare_rules.txt,destination_id,stops.txt,zone_id
+fare_rules.txt,contains_id,stops.txt,zone_id
+frequencies.txt,trip_id,trips.txt,trip_id
+transfers.txt,from_stop_id,stops.txt,stop_id
+transfers.txt,to_stop_id,stops.txt,stop_id
+pathways.txt,from_stop_id,stops.txt,stop_id
+pathways.txt,to_stop_id,stops.txt,stop_id
+attributions.txt,agency_id,agency.txt,agency_id
+attributions.txt,route_id,routes.txt,route_id
+attributions.txt,trip_id,trips.txt,trip_id
