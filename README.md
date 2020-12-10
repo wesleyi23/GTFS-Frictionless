@@ -1,5 +1,5 @@
 # GTFS-Frictionless
-An effort to create a [JSON Table Schema](http://frictionlessdata.io/guides/json-table-schema/) for the GTFS spec.
+An effort to create a [Frictionless JSON Table Schema](https://specs.frictionlessdata.io/table-schema/) for the GTFS spec.
 
 UNDER DEVELOPMENT
 
