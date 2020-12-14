@@ -3,6 +3,7 @@ import pandas
 import os
 import ast
 
+
 def add_new_field(schema,
                   name,
                   frictionless_type,
@@ -122,12 +123,25 @@ def create_spec(gtfs_file_name, enum_constraints_in_schema=True):
     schema.to_json("./tmp/" + gtfs_file_name.replace('.txt', '.json'))
 
 
+package = frictionless.Package(name="GTFS-Frictionless")
 
 files = os.listdir("example_files")
 
 for i in files:
+    print(i)
     create_spec(i)
+    schema = frictionless.Schema('./tmp/' + i.replace('.txt', '.json'))
+    resource = frictionless.Resource(name=i,
+                                     path="./" + i,
+                                     schema=schema)
+    package.add_resource(resource)
 
+# TODO get example attributions.txt file
 create_spec('attributions.txt')
+schema = frictionless.Schema('./tmp/' + 'attributions.txt'.replace('.txt', '.json'))
+resource = frictionless.Resource(name=i,
+                                     path="./" + i,
+                                     schema=schema)
+package.add_resource(resource)
 
-
+package.to_json("./tmp/data-package.json")
