@@ -5,10 +5,7 @@
       "type": "string",
       "description": "Identifies an attribution for the dataset or a subset of it. This is mostly useful for translations.",
       "gtfs_required": "Optional",
-      "gtfs_type": "ID",
-      "constraints": {
-        "unique": "true"
-      }
+      "gtfs_type": "ID"
     },
     {
       "name": "agency_id",

@@ -45,20 +45,14 @@
       "type": "string",
       "description": "Defines the record that corresponds to the field to be translated. The value in `record_id` should be a main ID of the table, as defined below:<br>• `agency_id` for `agency.txt`;<br>• `stop_id` for `stops.txt`;<br>• `route_id` for `routes.txt`;<br>• `trip_id` for `trips.txt`;<br>• `trip_id` for `stop_times.txt`;<br>• `pathway_id` for `pathways.txt`;<br>• `level_id` for `levels.txt`;<br>• `attribution_id` for `attribution.txt`.<br><br>No field should be translated in the other tables. However producers sometimes add extra fields that are outside the official specification and these unofficial fields may need to be translated. Below is the recommended way to use `record_id` for those tables:<br>• `service_id` for `calendar.txt`;<br>• `service_id` for `calendar_dates.txt`;<br>• `fare_id` for `fare_attributes.txt`;<br>• `fare_id` for `fare_rules.txt`;<br>• `shape_id` for `shapes.txt`;<br>• `trip_id` for `frequencies.txt`;<br>• `from_stop_id` for `transfers.txt`.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `field_value` is defined;<br>- **required** if `field_value` is empty.",
       "gtfs_required": "Conditionally Required",
-      "gtfs_type": "ID",
-      "constraints": {
-        "unique": "true"
-      }
+      "gtfs_type": "ID"
     },
     {
       "name": "record_sub_id",
       "type": "string",
       "description": "Helps the record that contains the field to be translated when the table doesn’t have a unique ID. Therefore, the value in `record_sub_id` is the secondary ID of the table, as defined by the table below:<br>• None for `agency.txt`;<br>• None for `stops.txt`;<br>• None for `routes.txt`;<br>• None for `trips.txt`;<br>• `stop_sequence` for `stop_times.txt`;<br>• None for `pathways.txt`;<br>• None for `levels.txt`;<br>• None for `attributions.txt`.<br><br>No field should be translated in the other tables. However producers sometimes add extra fields that are outside the official specification and these unofficial fields may need to be translated. Below is the recommended way to use `record_sub_id` for those tables:<br>• None for `calendar.txt`;<br>• `date` for `calendar_dates.txt`;<br>• None for `fare_attributes.txt`;<br>• `route_id` for `fare_rules.txt`;<br>• None for `shapes.txt`;<br>• `start_time` for `frequencies.txt`;<br>• `to_stop_id` for `transfers.txt`.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `field_value` is defined;<br>- **required** if `table_name=stop_times` and `record_id` is defined.",
       "gtfs_required": "Conditionally Required",
-      "gtfs_type": "ID",
-      "constraints": {
-        "unique": "true"
-      }
+      "gtfs_type": "ID"
     },
     {
       "name": "field_value",

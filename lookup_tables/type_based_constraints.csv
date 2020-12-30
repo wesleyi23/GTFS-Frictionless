@@ -1,5 +1,5 @@
 ﻿Type,Constraint,Value
-ID,unique,true
+ID,,
 Text,,
 URL,,
 Timezone,,

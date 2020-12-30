@@ -136,8 +136,9 @@ for i in files:
                                      schema=schema)
     package.add_resource(resource)
 
-# TODO get example attributions.txt file
+# TODO get example attributions.txt and trips file
 create_spec('attributions.txt')
+create_spec('trips.txt')
 schema = frictionless.Schema('./tmp/' + 'attributions.txt'.replace('.txt', '.json'))
 resource = frictionless.Resource(name=i,
                                      path="./" + i,

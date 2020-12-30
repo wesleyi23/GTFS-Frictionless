@@ -11,10 +11,7 @@
             "type": "string",
             "description": "Identifies a transit brand which is often synonymous with a transit agency. Note that in some cases, such as when a single agency operates multiple separate services, agencies and brands are distinct. This document uses the term \"agency\" in place of \"brand\". A dataset may contain data from multiple agencies. This field is required when the dataset contains data for multiple transit agencies, otherwise it is optional.",
             "gtfs_required": "Conditionally Required",
-            "gtfs_type": "ID",
-            "constraints": {
-              "unique": "true"
-            }
+            "gtfs_type": "ID"
           },
           {
             "name": "agency_name",
@@ -93,8 +90,7 @@
             "gtfs_required": "Required",
             "gtfs_type": "ID",
             "constraints": {
-              "required": "true",
-              "unique": "true"
+              "required": "true"
             }
           },
           {
@@ -291,8 +287,7 @@
             "gtfs_required": "Required",
             "gtfs_type": "ID",
             "constraints": {
-              "required": "true",
-              "unique": "true"
+              "required": "true"
             }
           },
           {
@@ -303,7 +298,7 @@
             "gtfs_type": "Non-negative float",
             "constraints": {
               "required": "true",
-              "minimum": "0"
+              "minimum": 0.0
             }
           },
           {
@@ -358,7 +353,7 @@
             "gtfs_required": "Optional",
             "gtfs_type": "Non-negative integer",
             "constraints": {
-              "minimum": "0"
+              "minimum": 0.0
             }
           }
         ]
@@ -568,8 +563,7 @@
             "gtfs_required": "Required",
             "gtfs_type": "ID",
             "constraints": {
-              "required": "true",
-              "unique": "true"
+              "required": "true"
             }
           },
           {
@@ -605,8 +599,7 @@
             "gtfs_required": "Required",
             "gtfs_type": "ID",
             "constraints": {
-              "required": "true",
-              "unique": "true"
+              "required": "true"
             }
           },
           {
@@ -671,7 +664,7 @@
             "gtfs_required": "Optional",
             "gtfs_type": "Positive Integer",
             "constraints": {
-              "minimum": "0"
+              "minimum": 0.0
             }
           },
           {
@@ -695,7 +688,7 @@
             "gtfs_required": "Optional",
             "gtfs_type": "Positive Float",
             "constraints": {
-              "minimum": "0"
+              "minimum": 0.0
             }
           },
           {
@@ -750,8 +743,7 @@
             "gtfs_required": "Required",
             "gtfs_type": "ID",
             "constraints": {
-              "required": "true",
-              "unique": "true"
+              "required": "true"
             }
           },
           {
@@ -827,7 +819,7 @@
             "gtfs_required": "Optional",
             "gtfs_type": "Non-negative integer",
             "constraints": {
-              "minimum": "0"
+              "minimum": 0.0
             }
           },
           {
@@ -875,8 +867,7 @@
             "gtfs_required": "Required",
             "gtfs_type": "ID",
             "constraints": {
-              "required": "true",
-              "unique": "true"
+              "required": "true"
             }
           },
           {
@@ -887,8 +878,8 @@
             "gtfs_type": "Latitude",
             "constraints": {
               "required": "true",
-              "minimum": "-180",
-              "maximum": "180"
+              "minimum": -180.0,
+              "maximum": 180.0
             }
           },
           {
@@ -899,8 +890,8 @@
             "gtfs_type": "Longitude",
             "constraints": {
               "required": "true",
-              "minimum": "-180",
-              "maximum": "180"
+              "minimum": -180.0,
+              "maximum": 180.0
             }
           },
           {
@@ -911,7 +902,7 @@
             "gtfs_type": "Non-negative integer",
             "constraints": {
               "required": "true",
-              "minimum": "0"
+              "minimum": 0.0
             }
           },
           {
@@ -921,7 +912,7 @@
             "gtfs_required": "Optional",
             "gtfs_type": "Non-negative float",
             "constraints": {
-              "minimum": "0"
+              "minimum": 0.0
             }
           }
         ],
@@ -940,8 +931,7 @@
             "gtfs_required": "Required",
             "gtfs_type": "ID",
             "constraints": {
-              "required": "true",
-              "unique": "true"
+              "required": "true"
             }
           },
           {
@@ -979,8 +969,8 @@
             "gtfs_required": "Conditionally Required",
             "gtfs_type": "Latitude",
             "constraints": {
-              "minimum": "-180",
-              "maximum": "180"
+              "minimum": -180.0,
+              "maximum": 180.0
             }
           },
           {
@@ -990,8 +980,8 @@
             "gtfs_required": "Conditionally Required",
             "gtfs_type": "Longitude",
             "constraints": {
-              "minimum": "-180",
-              "maximum": "180"
+              "minimum": -180.0,
+              "maximum": 180.0
             }
           },
           {
@@ -999,10 +989,7 @@
             "type": "string",
             "description": "Identifies the fare zone for a stop. This field is required if providing fare information using [fare_rules.txt](#fare_rulestxt), otherwise it is optional. If this record represents a station or station entrance, the `zone_id` is ignored.",
             "gtfs_required": "Conditionally Required",
-            "gtfs_type": "ID",
-            "constraints": {
-              "unique": "true"
-            }
+            "gtfs_type": "ID"
           },
           {
             "name": "stop_url",
@@ -1141,7 +1128,7 @@
             "gtfs_type": "Non-negative integer",
             "constraints": {
               "required": "true",
-              "minimum": "0"
+              "minimum": 0.0
             }
           },
           {
@@ -1210,7 +1197,7 @@
             "gtfs_required": "Optional",
             "gtfs_type": "Non-negative float",
             "constraints": {
-              "minimum": "0"
+              "minimum": 0.0
             }
           },
           {
@@ -1277,7 +1264,7 @@
             "gtfs_required": "Optional",
             "gtfs_type": "Non-negative integer",
             "constraints": {
-              "minimum": "0"
+              "minimum": 0.0
             }
           }
         ]
@@ -1333,20 +1320,14 @@
             "type": "string",
             "description": "Defines the record that corresponds to the field to be translated. The value in `record_id` should be a main ID of the table, as defined below:<br>• `agency_id` for `agency.txt`;<br>• `stop_id` for `stops.txt`;<br>• `route_id` for `routes.txt`;<br>• `trip_id` for `trips.txt`;<br>• `trip_id` for `stop_times.txt`;<br>• `pathway_id` for `pathways.txt`;<br>• `level_id` for `levels.txt`;<br>• `attribution_id` for `attribution.txt`.<br><br>No field should be translated in the other tables. However producers sometimes add extra fields that are outside the official specification and these unofficial fields may need to be translated. Below is the recommended way to use `record_id` for those tables:<br>• `service_id` for `calendar.txt`;<br>• `service_id` for `calendar_dates.txt`;<br>• `fare_id` for `fare_attributes.txt`;<br>• `fare_id` for `fare_rules.txt`;<br>• `shape_id` for `shapes.txt`;<br>• `trip_id` for `frequencies.txt`;<br>• `from_stop_id` for `transfers.txt`.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `field_value` is defined;<br>- **required** if `field_value` is empty.",
             "gtfs_required": "Conditionally Required",
-            "gtfs_type": "ID",
-            "constraints": {
-              "unique": "true"
-            }
+            "gtfs_type": "ID"
           },
           {
             "name": "record_sub_id",
             "type": "string",
             "description": "Helps the record that contains the field to be translated when the table doesn’t have a unique ID. Therefore, the value in `record_sub_id` is the secondary ID of the table, as defined by the table below:<br>• None for `agency.txt`;<br>• None for `stops.txt`;<br>• None for `routes.txt`;<br>• None for `trips.txt`;<br>• `stop_sequence` for `stop_times.txt`;<br>• None for `pathways.txt`;<br>• None for `levels.txt`;<br>• None for `attributions.txt`.<br><br>No field should be translated in the other tables. However producers sometimes add extra fields that are outside the official specification and these unofficial fields may need to be translated. Below is the recommended way to use `record_sub_id` for those tables:<br>• None for `calendar.txt`;<br>• `date` for `calendar_dates.txt`;<br>• None for `fare_attributes.txt`;<br>• `route_id` for `fare_rules.txt`;<br>• None for `shapes.txt`;<br>• `start_time` for `frequencies.txt`;<br>• `to_stop_id` for `transfers.txt`.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `field_value` is defined;<br>- **required** if `table_name=stop_times` and `record_id` is defined.",
             "gtfs_required": "Conditionally Required",
-            "gtfs_type": "ID",
-            "constraints": {
-              "unique": "true"
-            }
+            "gtfs_type": "ID"
           },
           {
             "name": "field_value",
@@ -1354,6 +1335,136 @@
             "description": "Instead of defining which record should be translated by using `record_id` and `record_sub_id`, this field can be used to define the value which should be translated. When used, the translation will be applied when the fields identified by `table_name` and `field_name` contains the exact same value defined in field_value.<br><br>The field must have **exactly** the value defined in `field_value`. If only a subset of the value matches `field_value`, the translation won’t be applied.<br><br>If two translation rules match the same record (one with `field_value`, and the other one with `record_id`), then the rule with `record_id` is the one which should be used.<br><br>**Conditionally Required:**<br>- **forbidden** if `table_name` is `feed_info`;<br>- **forbidden** if `record_id` is defined;<br>- **required** if `record_id` is empty.",
             "gtfs_required": "Conditionally Required",
             "gtfs_type": "Text or URL or Email or Phone number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "translations.txt",
+      "path": "./translations.txt",
+      "schema": {
+        "fields": [
+          {
+            "name": "attribution_id",
+            "type": "string",
+            "description": "Identifies an attribution for the dataset or a subset of it. This is mostly useful for translations.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "ID"
+          },
+          {
+            "name": "agency_id",
+            "type": "",
+            "description": "Agency to which the attribution applies.<br><br>If one `agency_id`, `route_id`, or `trip_id` attribution is defined, the other ones must be empty. If none of them is specified, the attribution will apply to the whole dataset.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "ID referencing `agency.agency_id`"
+          },
+          {
+            "name": "route_id",
+            "type": "",
+            "description": "Functions in the same way as `agency_id` except the attribution applies to a route. Multiple attributions can apply to the same route.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "ID referencing `routes.route_id`"
+          },
+          {
+            "name": "trip_id",
+            "type": "",
+            "description": "Functions in the same way as `agency_id` except the attribution applies to a trip. Multiple attributions can apply to the same trip.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "ID referencing `trips.trip_id`"
+          },
+          {
+            "name": "organization_name",
+            "type": "string",
+            "description": "Name of the organization that the dataset is attributed to.",
+            "gtfs_required": "Required",
+            "gtfs_type": "Text",
+            "constraints": {
+              "required": "true"
+            }
+          },
+          {
+            "name": "is_producer",
+            "type": "integer",
+            "description": "The role of the organization is producer. Valid options are:<br><br>`0` or empty - Organization doesn’t have this role.<br>`1` - Organization does have this role.<br><br>At least one of the fields `is_producer`, `is_operator`, or `is_authority` should be set at `1`.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "Enum",
+            "constraints": {
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "is_operator",
+            "type": "integer",
+            "description": "Functions in the same way as `is_producer` except the role of the organization is operator.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "Enum"
+          },
+          {
+            "name": "is_authority",
+            "type": "integer",
+            "description": "Functions in the same way as `is_producer` except the role of the organization is authority.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "Enum"
+          },
+          {
+            "name": "attribution_url",
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the organization.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "URL"
+          },
+          {
+            "name": "attribution_email",
+            "type": "string",
+            "format": "email",
+            "description": "Email of the organization.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "Email"
+          },
+          {
+            "name": "attribution_phone",
+            "type": "string",
+            "description": "Phone number of the organization.",
+            "gtfs_required": "Optional",
+            "gtfs_type": "Phone number"
+          }
+        ],
+        "primaryKey": "attribution_id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "agency_id"
+            ],
+            "reference": {
+              "resource": "agency.txt",
+              "fields": [
+                "agency_id"
+              ]
+            }
+          },
+          {
+            "fields": [
+              "route_id"
+            ],
+            "reference": {
+              "resource": "routes.txt",
+              "fields": [
+                "route_id"
+              ]
+            }
+          },
+          {
+            "fields": [
+              "trip_id"
+            ],
+            "reference": {
+              "resource": "trips.txt",
+              "fields": "trip_id"
+            }
           }
         ]
       }

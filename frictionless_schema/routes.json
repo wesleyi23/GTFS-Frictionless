@@ -7,8 +7,7 @@
       "gtfs_required": "Required",
       "gtfs_type": "ID",
       "constraints": {
-        "required": "true",
-        "unique": "true"
+        "required": "true"
       }
     },
     {
@@ -84,7 +83,7 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Non-negative integer",
       "constraints": {
-        "minimum": "0"
+        "minimum": 0.0
       }
     },
     {

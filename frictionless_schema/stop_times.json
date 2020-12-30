@@ -42,7 +42,7 @@
       "gtfs_type": "Non-negative integer",
       "constraints": {
         "required": "true",
-        "minimum": "0"
+        "minimum": 0.0
       }
     },
     {
@@ -111,7 +111,7 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Non-negative float",
       "constraints": {
-        "minimum": "0"
+        "minimum": 0.0
       }
     },
     {

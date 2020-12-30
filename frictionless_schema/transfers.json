@@ -43,7 +43,7 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Non-negative integer",
       "constraints": {
-        "minimum": "0"
+        "minimum": 0.0
       }
     }
   ]

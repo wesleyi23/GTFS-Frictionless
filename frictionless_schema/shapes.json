@@ -7,8 +7,7 @@
       "gtfs_required": "Required",
       "gtfs_type": "ID",
       "constraints": {
-        "required": "true",
-        "unique": "true"
+        "required": "true"
       }
     },
     {
@@ -19,8 +18,8 @@
       "gtfs_type": "Latitude",
       "constraints": {
         "required": "true",
-        "minimum": "-180",
-        "maximum": "180"
+        "minimum": -180.0,
+        "maximum": 180.0
       }
     },
     {
@@ -31,8 +30,8 @@
       "gtfs_type": "Longitude",
       "constraints": {
         "required": "true",
-        "minimum": "-180",
-        "maximum": "180"
+        "minimum": -180.0,
+        "maximum": 180.0
       }
     },
     {
@@ -43,7 +42,7 @@
       "gtfs_type": "Non-negative integer",
       "constraints": {
         "required": "true",
-        "minimum": "0"
+        "minimum": 0.0
       }
     },
     {
@@ -53,7 +52,7 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Non-negative float",
       "constraints": {
-        "minimum": "0"
+        "minimum": 0.0
       }
     }
   ],
