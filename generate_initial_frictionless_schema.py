@@ -125,24 +125,25 @@ def create_spec(gtfs_file_name, enum_constraints_in_schema=True):
 
 package = frictionless.Package(name="GTFS-Frictionless")
 
-files = os.listdir("example_files")
+files = os.listdir("tables_in_spec")
 
 for i in files:
-    print(i)
-    create_spec(i)
-    schema = frictionless.Schema('./tmp/' + i.replace('.txt', '.json'))
-    resource = frictionless.Resource(name=i,
-                                     path="./" + i,
+    j = i.replace('.md', '.txt')
+    print(j)
+    create_spec(j)
+    schema = frictionless.Schema('./tmp/' + j.replace('.txt', '.json'))
+    resource = frictionless.Resource(name=j,
+                                     path="./" + j,
                                      schema=schema)
     package.add_resource(resource)
 
 # TODO get example attributions.txt and trips file
-create_spec('attributions.txt')
-create_spec('trips.txt')
-schema = frictionless.Schema('./tmp/' + 'attributions.txt'.replace('.txt', '.json'))
-resource = frictionless.Resource(name=i,
-                                     path="./" + i,
-                                     schema=schema)
-package.add_resource(resource)
+# create_spec('attributions.txt')
+# create_spec('trips.txt')
+# schema = frictionless.Schema('./tmp/' + 'attributions.txt'.replace('.txt', '.json'))
+# resource = frictionless.Resource(name=i,
+#                                      path="./" + i,
+#                                      schema=schema)
+# package.add_resource(resource)
 
 package.to_json("./tmp/data-package.json")
