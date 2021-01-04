@@ -11,8 +11,8 @@ will use a table driven approach to produce a [Frictionless Data Package Schema]
 for the GTFS specification and [Frictionless Table Schemas](https://specs.frictionlessdata.io/table-schema/) for each 
 file in a GTFS feed. 
 
-Data from the GTFS specification copied from the markdown tables in the specification to a markdown file for each GTFS 
-file. These may be found in the tables_in_spec folder.
+Data from the GTFS specification has been copied from the markdown tables in the specification to a markdown file for each GTFS 
+file. These may be found in the tables_in_spec folder and may be updated as the specification changes.
 
 Look up tables for metadata, required by the Frictionless data standards, are in the lookup_tables folder.  You will find 
 the following tables in that folder:
