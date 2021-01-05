@@ -72,7 +72,7 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Positive Integer",
       "constraints": {
-        "minimum": 0.0
+        "minimum": 1.0
       }
     },
     {
@@ -96,7 +96,7 @@
       "gtfs_required": "Optional",
       "gtfs_type": "Positive Float",
       "constraints": {
-        "minimum": 0.0
+        "minimum": 1.175494e-38
       }
     },
     {
