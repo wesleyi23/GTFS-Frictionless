@@ -27,8 +27,8 @@ ID referencing calendar.service_id or ID,,
 Currency code,,
 ID referencing fare_attributes.fare_id,,
 ID referencing stops.zone_id,,
-Positive Integer,minimum,0
+Positive Integer,minimum,1
 Non-null Integer,,
 Float,,
-Positive Float,minimum,0
+Positive Float,minimum,1.175494e-38
 Text or URL or Email or Phone number,,

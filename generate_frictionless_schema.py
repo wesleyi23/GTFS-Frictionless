@@ -58,14 +58,14 @@ def get_md_table_path_from_file_name(gtfs_file_name):
     return 'tables_in_spec/' + gtfs_file_name.replace('.txt', '.md')
 
 
-def create_spec(gtfs_file_name, enum_constraints_in_schema=True):
+def create_spec(gtfs_file_name, constraints_in_schema=True):
     # Load constraint lookup tables
     type_based_constraints = pandas.read_csv('lookup_tables/type_based_constraints.csv')
     type_based_constraints = type_based_constraints[type_based_constraints["Constraint"].notnull()]
 
-    enum_constraints = pandas.read_csv('lookup_tables/enum_constraints.csv')
-    enum_constraints = enum_constraints[enum_constraints["Constraint"].notnull()]
-    enum_constraints = enum_constraints[enum_constraints['Table'] == gtfs_file_name]
+    constraints = pandas.read_csv('lookup_tables/constraints.csv')
+    constraints = constraints[constraints["Constraint"].notnull()]
+    constraints = constraints[constraints['Table'] == gtfs_file_name]
 
     foreign_keys = pandas.read_csv('lookup_tables/foreign_keys.csv')
     foreign_keys = foreign_keys[foreign_keys["Field"].notnull()]
@@ -99,9 +99,9 @@ def create_spec(gtfs_file_name, enum_constraints_in_schema=True):
                 schema.get_field(row['Field Name']).constraints[c_row['Constraint']] = c_row['Value']
 
         #add enum constraints
-        if enum_constraints_in_schema:
-            if row['Field Name'] in list(enum_constraints['Field Name']):
-                for c_index, c_row in enum_constraints.iterrows():
+        if constraints_in_schema:
+            if row['Field Name'] in list(constraints['Field Name']):
+                for c_index, c_row in constraints.iterrows():
                     schema.get_field(row['Field Name']).constraints['enum'] = ast.literal_eval(c_row['Value'])
 
 

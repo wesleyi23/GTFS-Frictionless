@@ -1,6 +1,6 @@
 ﻿Table,Field Name,Constraint,Value
-stops.txt,location_type,enum,"[1,2,3,4]"
-stops.txt,wheelchair_boarding,enum,"[0, 1, 2]"
+stops.txt,location_type,enum,"[0,1,2,3,4]"
+stops.txt,wheelchair_boarding,enum,"[0,1,2]"
 routes.txt,route_type,enum,"[0,1,2,3,4,5,6,7,11,12]"
 routes.txt,continuous_drop_off,enum,"[0,1,2,3]"
 trips.txt,direction_id,enum,"[0,1]"
