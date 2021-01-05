@@ -100,9 +100,14 @@ def create_spec(gtfs_file_name, constraints_in_schema=True):
 
         #add enum constraints
         if constraints_in_schema:
+
             if row['Field Name'] in list(constraints['Field Name']):
-                for c_index, c_row in constraints.iterrows():
-                    schema.get_field(row['Field Name']).constraints['enum'] = ast.literal_eval(c_row['Value'])
+                constraint_type = constraints.loc[constraints['Field Name'] == row['Field Name']]['Constraint'].item()
+                constraint_value = constraints.loc[constraints['Field Name'] == row['Field Name']]['Value'].item()
+                constraint_value = ast.literal_eval(str(constraint_value))
+                schema.get_field(row['Field Name']).constraints[constraint_type] = constraint_value
+
+
 
 
     # add primary keys

@@ -40,8 +40,8 @@
       "constraints": {
         "required": "true",
         "enum": [
-          1,
-          2
+          0,
+          1
         ]
       }
     },
