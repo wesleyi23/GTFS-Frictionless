@@ -133,6 +133,8 @@ def create_spec(gtfs_file_name, constraints_in_schema=True):
     schema.to_json("./tmp/" + gtfs_file_name.replace('.txt', '.json'))
 
 
+
+
 # For each file run create the table schema and package into a data package
 package = frictionless.Package(name="GTFS-Frictionless")
 

@@ -994,6 +994,18 @@
               ]
             }
           }
+        ],
+        "primaryKey": "route_id",
+        "foreignKeys": [
+          {
+            "fields": [
+              "agency_id"
+            ],
+            "reference": {
+              "resource": "agency.txt",
+              "fields": "agency_id"
+            }
+          }
         ]
       }
     },
