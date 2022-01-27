@@ -36,7 +36,7 @@
     },
     {
       "name": "stop_sequence",
-      "type": "interger",
+      "type": "integer",
       "description": "Order of stops for a particular trip. The values must increase along the trip but do not need to be consecutive.<hr>*Example: The first location on the trip could have a `stop_sequence`=`1`, the second location on the trip could have a `stop_sequence`=`23`, the third location could have a `stop_sequence`=`40`, and so on.*",
       "gtfs_required": "Required",
       "gtfs_type": "Non-negative integer",
